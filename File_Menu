@@ -1,10 +1,10 @@
 #include <iostream>
-#include <iomanip>                 
-#include <cstdlib>      
-#include <windows.h>               //COPYRIGHT 2015 ALL RIGHTS RESERVED...
+#include <iomanip>
+#include <cstdlib>
+#include <windows.h>            //COPYRIGHT 2015 ALL RIGHTS RESERVED
 #include <fstream>
 #include <string>
-#include <sstream>                     
+#include <sstream>
 
 using namespace std;
 
@@ -52,9 +52,23 @@ int main()
             cout << "\n";
             cout << "================================================================================================================\n";
             cout << "\n";
+            string InFile;
             cout << setw(60) <<  "Write File\n\n\n\n";
+            cout << "\n\n";
+            getline(cin, InFile);
+            ofstream ReadFromFile;
+            ReadFromFile.open("FileData.txt");
+            if(!ReadFromFile)
+            {
+                cerr << "Error Cannot Write To File Please Restart Program" << endl;
+            }
+
+            ReadFromFile << InFile << endl;
+            ReadFromFile.close();
+
             break;
             }
+
        case 2:
            {
             cout << "Loading";
@@ -70,13 +84,20 @@ int main()
             cout << "================================================================================================================\n";
             cout << "\n";
             cout << setw(60) << "Read File\n\n\n\n";
-            ofstream ReadFromFile("ReadData.txt");
+            ifstream ReadFromFile;
+            ReadFromFile.open("FileData.txt");
+
             if(!ReadFromFile)
             {
-                cerr << "Error Cannot Read The File" << endl;
+                cerr << "Error Cannot Read File Please Restart The Program" << endl;
+                exit(1);
             }
 
-            cout << "Testing File";
+            while(ReadFromFile) {
+                string InData;
+                ReadFromFile >> InData;
+                cout << InData << endl;
+            }
             break;
            }
         case 3:
@@ -94,3 +115,7 @@ int main()
 
     return 0;
 }
+
+
+
+
