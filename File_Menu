@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
-#include <windows.h>              //COPYRIGHT 2015 ALL RIGHTS RESERVED
+#include <windows.h>                       //COPYRIGHT 2015 ALL RIGHTS RESERVED
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -57,7 +57,7 @@ int main()
             cout << "\n\n";
             getline(cin, InFile);
             ofstream ReadFromFile;
-            ReadFromFile.open("FileData.txt");
+            ReadFromFile.open("FileData.txt", std::ios_base::app);
             if(!ReadFromFile)
             {
                 cerr << "Error Cannot Write To File Please Restart Program" << endl;
@@ -115,6 +115,10 @@ int main()
 
     return 0;
 }
+
+
+
+
 
 
 
