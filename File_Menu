@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
-#include <windows.h>            //COPYRIGHT 2015 ALL RIGHTS RESERVED
+#include <windows.h>              //COPYRIGHT 2015 ALL RIGHTS RESERVED
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -95,7 +95,7 @@ int main()
 
             while(ReadFromFile) {
                 string InData;
-                ReadFromFile >> InData;
+                getline(ReadFromFile, InData);
                 cout << InData << endl;
             }
             break;
